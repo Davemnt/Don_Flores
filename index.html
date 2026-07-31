@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don Flores — Frutas y Verduras Frescas | Mayorista y Minorista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14231C;
+    --panel:#F1F0E9;
+    --green:#1F4D3A;
+    --green-soft:#E7F0EA;
+    --green-line: rgba(31,77,58,0.16);
+    --accent:#E15A2D;
+    --accent-soft:#FCE7DD;
+    --gold:#B8912F;
+    --gray:#6B7269;
+    --line: rgba(20,35,28,0.10);
+  }
+  *{margin:0;padding:0;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Sora', sans-serif; font-weight:700; letter-spacing:-0.02em; color:var(--ink);}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  img,svg{display:block;}
+  ::selection{background:var(--accent-soft);}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:transparent;
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:11px;}
+  .brand-mark{display:flex; align-items:center; flex-shrink:0;}
+  .brand-mark img{height:100px; width:auto; display:block;}
+  .brand-mark--lg img{height:150px; margin-left: 60px; margin-top: -30px;}
+  .gold-rule{
+    height:3px;
+    background:linear-gradient(90deg, transparent, var(--gold) 20%, #E8CE7A 50%, var(--gold) 80%, transparent);
+  }
+  nav.links{display:flex; gap:34px; font-size:14.5px; font-weight:500; color:var(--ink);}
+  nav.links a{padding:4px 0; position:relative; color:#3A3F38;}
+  nav.links a:hover{color:var(--ink);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--green); color:#fff;
+    padding:12px 22px; border-radius:10px;
+    font-weight:600; font-size:14px;
+    transition:background .15s, transform .15s;
+  }
+  .btn:hover{background:#173C2C; transform:translateY(-1px);}
+  .btn.accent{background:var(--accent);}
+  .btn.accent:hover{background:#C74B21;}
+  .btn.outline{background:transparent; color:var(--ink); border:1.5px solid var(--line); box-shadow:none;}
+  .btn.outline:hover{border-color:var(--green); background:var(--green-soft);}
+  .menu-toggle{display:none; background:none; border:1.5px solid var(--line); border-radius:8px; padding:8px 10px; font-size:16px; cursor:pointer;}
+
+  .hero{position:relative; overflow:hidden; min-height:640px; display:flex; align-items:center;}
+  .hero-media{position:absolute; top:0; right:0; bottom:0; left:0; z-index:0;}
+  .hero-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center;}
+  .hero-media-fade{
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(251,250,246,0) 0%, rgba(251,250,246,0.96) 22%, rgba(251,250,246,0.96) 42%, rgba(251,250,246,0.5) 58%, rgba(251,250,246,0) 75%);
+  }
+  .hero-content{position:relative; z-index:2; padding:110px 32px 90px; width:100%;}
+  .hero-text{max-width:640px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--green-soft); color:var(--green);
+    font-size:12.5px; font-weight:600; letter-spacing:0.3px;
+    padding:7px 14px; border-radius:20px; margin-bottom:24px;
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
+  .hero h1{font-size:clamp(38px, 4.6vw, 58px); line-height:1.05;}
+  .hero h1 .accent-text{color:var(--green);}
+  .hero p.sub{font-size:17px; color:var(--gray); max-width:440px; margin:22px 0 32px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .hero-stats{display:flex; gap:22px; padding-top:28px; border-top:1px solid var(--line); flex-wrap:nowrap;}
+  .hstat{display:flex; align-items:center; gap:10px; white-space:nowrap;}
+  .hstat-ic{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--green-soft);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .hstat b{font-family:'Sora',sans-serif; font-size:19px; display:block; color:var(--ink); line-height:1.25;}
+  .hstat span{font-size:12px; color:var(--gray);}
+
+  section{padding:88px 0;}
+  .section-head{max-width:600px; margin-bottom:52px;}
+  .eyebrow-dark{font-size:12.5px; font-weight:600; letter-spacing:0.3px; color:var(--accent); margin-bottom:12px; display:block;}
+  .section-head h2{font-size:clamp(28px,3.6vw,38px);}
+  .section-head p{color:var(--gray); font-size:16px; margin-top:14px;}
+
+  .products{background:var(--panel);}
+  .product-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .pcard{
+    background:var(--paper);
+    border-radius:16px;
+    padding:24px 22px 22px;
+    border:1px solid var(--line);
+    transition:transform .15s, box-shadow .15s;
+    position:relative;
+    display:flex; flex-direction:column;
+  }
+  .pcard:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(20,35,28,0.08);}
+  .pcard .ic-circ{width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
+  .pcard .pname{font-family:'Sora',sans-serif; font-weight:700; font-size:16.5px; margin-bottom:4px;}
+  .pcard .ptag{display:none;}
+  .pcard-cta{
+    margin-top:auto;
+    display:inline-flex; align-items:center; justify-content:center; gap:7px;
+    background:var(--green-soft); color:var(--green);
+    font-size:13px; font-weight:600;
+    padding:10px 12px; border-radius:10px;
+    transition:background .15s, color .15s;
+  }
+  .pcard-cta:hover{background:#25D366; color:#fff;}
+  .pcard-cta svg{flex-shrink:0;}
+  .catalog-note{
+    display:flex; align-items:center; gap:10px;
+    font-size:13.5px; color:var(--gray);
+    margin-top:30px; padding:16px 20px;
+    background:var(--paper); border:1px dashed var(--line); border-radius:12px;
+  }
+
+  .features-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:760px;}
+  .feature{padding:28px 24px; background:var(--paper); border:1px solid var(--line); border-radius:16px;}
+  .feature .fi{width:42px; height:42px; border-radius:11px; background:var(--green-soft); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .feature h3{font-family:'Sora',sans-serif; font-size:16px; font-weight:700; margin-bottom:8px;}
+  .feature p{font-size:13.5px; color:var(--gray);}
+
+  .cta{padding:0 0 88px;}
+  .cta-panel{
+    background:var(--ink);
+    border-radius:24px;
+    padding:64px;
+    display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
+  }
+  .cta-panel h2{color:#fff; font-size:clamp(26px,3.4vw,36px); max-width:480px;}
+  .cta-panel p{color:#A9AF9F; font-size:15.5px; margin-top:12px; max-width:420px;}
+  .cta-actions{display:flex; flex-direction:column; gap:14px; align-items:flex-start;}
+  .phone-line{font-size:13.5px; color:#A9AF9F;}
+
+  footer{background:var(--paper); border-top:1px solid var(--line); padding:56px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:44px;}
+  .foot-brand{display:flex; align-items:center; gap:11px; margin-bottom:16px;}
+  footer p.desc{font-size:14px; color:var(--gray); max-width:300px;}
+  footer h4{font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:16px; font-weight:600;}
+  footer ul{list-style:none; display:flex; flex-direction:column; gap:11px; font-size:14px; color:var(--gray);}
+  footer ul a:hover{color:var(--ink);}
+  .foot-bottom{
+    border-top:1px solid var(--line);
+    padding-top:22px; font-size:12.5px; color:var(--gray);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  .wa-float{
+    position:fixed; bottom:24px; right:24px; z-index:60;
+    background:#25D366; color:#fff;
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 20px rgba(37,211,102,0.35);
+  }
+
+  @media (max-width: 920px){
+    nav.links{
+      display:none; flex-direction:column; gap:0;
+      position:absolute; top:100%; left:0; right:0;
+      background:rgba(251,250,246,0.98); backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line); z-index:49;
+      padding:0;
+    }
+    nav.links.open{display:flex;}
+    nav.links a{padding:14px 20px; border-top:1px solid var(--line); font-size:15px;}
+    .menu-toggle{display:block;}
+    .btn.nav-cta{display:none;}
+    .wrap{padding:0 20px;}
+    .nav{padding:12px 20px; position:relative;}
+    section{padding:60px 0;}
+    .cta{padding:0 0 60px;}
+    .brand-mark img{height:52px;}
+    .brand-mark--lg img{height:64px;}
+    .hero{min-height:0; display:block;}
+    .hero-media{position:relative; top:auto; right:auto; bottom:auto; left:auto; height:280px;}
+    .hero-photo{position:absolute; width:100%; height:100%; object-position:right 25%;}
+    .hero-media-fade{background:linear-gradient(180deg, rgba(251,250,246,0) 30%, rgba(251,250,246,0.85) 70%, var(--paper) 100%);}
+    .hero-content{padding:24px 20px 52px;}
+    .hero-text{max-width:100%;}
+    .hero-stats{flex-wrap:wrap; gap:20px;}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .features-grid{grid-template-columns:1fr;}
+    .cta-panel{padding:36px 24px; flex-direction:column; align-items:flex-start;}
+    .foot-grid{grid-template-columns:1fr; gap:28px;}
+    footer{padding:44px 0 24px;}
+    .contact-grid{grid-template-columns:1fr;}
+    .map-wrap{height:260px;}
+    .catalog-send-btn{width:100%; justify-content:center;}
+    .pcard-img{height:260px;}
+    .section-head{margin-bottom:40px;}
+  }
+  @media (max-width: 600px){
+    .wrap{padding:0 16px;}
+    .nav{padding:10px 16px;}
+    .brand-mark img{height:44px;}
+    .brand-mark--lg img{height:56px;}
+    section{padding:44px 0;}
+    .cta{padding:0 0 44px;}
+    .hero-media{height:210px;}
+    .hero-content{padding:18px 16px 40px;}
+    .hero h1{font-size:clamp(24px,7.5vw,36px);}
+    .hero p.sub{font-size:15px; margin:16px 0 24px;}
+    .hero-stats{gap:14px;}
+    .hstat b{font-size:17px;}
+    .pcard{padding:16px 14px 14px;}
+    .pcard-img{height:240px;}
+    .section-head{margin-bottom:30px;}
+    .section-head h2{font-size:clamp(20px,5.5vw,30px);}
+    .cta-panel{padding:28px 20px;}
+    .cta-panel h2{font-size:clamp(20px,5.5vw,28px);}
+    .features-grid{gap:12px;}
+    .feature{padding:20px 16px;}
+    .contact-grid{margin-top:36px;}
+    .map-wrap{height:210px;}
+    footer{padding:32px 0 18px;}
+    .foot-grid{gap:20px;}
+    .foot-bottom{flex-direction:column; align-items:flex-start; gap:4px;}
+    .catalog-order-bar{margin-top:28px;}
+    .catalog-send-btn{padding:13px 20px; font-size:14.5px; width:100%; justify-content:center;}
+    .catalog-send-note{font-size:12.5px;}
+  }
+  @media (max-width: 400px){
+    .product-grid{grid-template-columns:1fr;}
+    .hero-ctas{flex-direction:column;}
+    .hero-ctas .btn{width:100%; justify-content:center;}
+    .unit-btn{padding:6px 4px; font-size:11.5px;}
+    .qs-btn{width:34px; height:34px;}
+    .hstat{width:100%;}
+    .cta-panel{padding:24px 16px;}
+    .contact-ic{width:36px; height:36px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* --- Catalog order system --- */
+  .pcard-controls{margin-top:auto; display:flex; flex-direction:column; gap:10px;}
+  .unit-toggle{display:flex; gap:6px;}
+  .unit-btn{flex:1; padding:7px 8px; border-radius:8px; border:1.5px solid var(--line); font-size:12.5px; font-weight:600; cursor:pointer; background:var(--paper); color:var(--gray); transition:all .15s; font-family:'Inter',sans-serif;}
+  .unit-btn.active{background:var(--green-soft); color:var(--green); border-color:var(--green);}
+  .qty-stepper{display:flex; align-items:center; border:1.5px solid var(--line); border-radius:10px; overflow:hidden;}
+  .qs-btn{width:38px; height:36px; border:none; background:transparent; cursor:pointer; font-size:20px; font-weight:600; color:var(--gray); line-height:1; transition:background .1s; display:flex; align-items:center; justify-content:center; font-family:'Inter',sans-serif;}
+  .qs-btn:hover{background:var(--panel); color:var(--ink);}
+  .qs-val{flex:1; text-align:center; font-size:16px; font-family:'Sora',sans-serif; font-weight:700; color:var(--ink); min-width:30px; user-select:none;}
+  .pcard.has-qty{box-shadow:0 0 0 2.5px var(--green); transform:translateY(-3px);}
+  .catalog-order-bar{display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:44px;}
+  .catalog-send-btn{display:inline-flex; align-items:center; gap:10px; background:#25D366; color:#fff; padding:14px 32px; border-radius:12px; font-size:15.5px; font-weight:700; border:none; cursor:pointer; box-shadow:0 6px 20px rgba(37,211,102,0.3); transition:background .15s,transform .15s; font-family:'Sora',sans-serif;}
+  .catalog-send-btn:hover{background:#1DB954; transform:translateY(-2px);}
+  .catalog-send-note{font-size:13px; color:var(--gray); text-align:center; max-width:500px;}
+  .pcard-img{width:100%; height:320px; border-radius:14px; overflow:hidden; margin-bottom:16px; background:var(--card-bg,var(--panel)); position:relative;}
+  .pcard-img-container{position:relative; width:100%; height:100%; display:flex; overflow:hidden;}
+  .pcard-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none; transition:opacity .4s ease;}
+  .pcard-img img.active{display:block; opacity:1; z-index:1;}
+  .pcard-svg{width:44px; height:44px; flex-shrink:0; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:0; opacity:1;}
+  .pcard-img img.active ~ .pcard-svg{opacity:0;}
+  .gallery-dots{display:flex; gap:6px; justify-content:center; position:absolute; bottom:10px; left:0; right:0; z-index:2;}
+  .gallery-dot{width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.5); cursor:pointer; transition:all .2s; border:1px solid rgba(0,0,0,0.1);}
+  .gallery-dot.active{background:#fff; width:20px; border-radius:10px;}
+  .qty-unit-hint{display:block; text-align:center; font-size:12px; font-weight:600; color:var(--green); margin-top:5px; letter-spacing:0.2px; min-height:16px;}
+  .unit-toggle.triple{gap:4px;}
+  .unit-toggle.triple .unit-btn{font-size:11.5px; padding:6px 4px;}
+  /* image upload hint shown in devtools — drop file at the listed path to activate */
+
+  /* --- Contact section --- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1.5fr; gap:36px; align-items:start; margin-top:64px;}
+  .contact-info-list{display:flex; flex-direction:column; gap:20px;}
+  .contact-item{display:flex; gap:14px; align-items:flex-start;}
+  .contact-ic{width:42px; height:42px; border-radius:11px; background:var(--green-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .contact-item-text h4{font-size:14px; font-weight:600; margin-bottom:3px; color:var(--ink);}
+  .contact-item-text p{font-size:13.5px; color:var(--gray); line-height:1.55;}
+  .map-wrap{border-radius:16px; overflow:hidden; border:1px solid var(--line); height:340px; background:var(--panel);}
+  .map-wrap iframe{width:100%; height:100%; border:0; display:block;}
+
+  /* --- Announce bar --- */
+  .announce-bar{background:var(--green); color:#fff; text-align:center; font-size:13px; font-weight:500; padding:10px 16px; line-height:1.5;}
+  .announce-bar strong{font-weight:700;}
+  @media(max-width:600px){.announce-bar{font-size:12px; padding:8px 12px;}}
+
+  /* --- Order confirmation modal --- */
+  .order-modal{position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .order-modal[hidden]{display:none;}
+  .order-modal-overlay{position:absolute; inset:0; background:rgba(20,35,28,0.55);}
+  .order-modal-box{position:relative; background:var(--paper); border-radius:20px; padding:32px; width:100%; max-width:460px; max-height:85vh; overflow-y:auto; box-shadow:0 24px 60px rgba(20,35,28,0.2);}
+  .order-modal-box h3{font-family:'Sora',sans-serif; font-size:20px; font-weight:700; margin-bottom:6px;}
+  .order-modal-subtitle{font-size:13.5px; color:var(--gray); margin-bottom:20px;}
+  .order-modal-item{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); font-size:14px;}
+  .order-modal-item:last-child{border-bottom:none; margin-bottom:0;}
+  .order-modal-item strong{font-weight:600;}
+  .order-modal-item span{color:var(--gray);}
+  .order-modal-delivery{margin-top:14px; padding:11px 14px; background:var(--green-soft); border-radius:10px; font-size:13px; color:var(--green); font-weight:500;}
+  .order-modal-actions{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap;}
+  .order-modal-cancel{flex:1; min-width:100px; padding:12px; border-radius:10px; border:1.5px solid var(--line); background:transparent; font-size:14px; font-weight:600; cursor:pointer; color:var(--gray); font-family:'Inter',sans-serif; transition:border-color .15s,color .15s;}
+  .order-modal-cancel:hover{border-color:var(--green); color:var(--ink);}
+  .order-modal-actions .catalog-send-btn{flex:2; min-width:160px; justify-content:center;}
+  @media(max-width:480px){.order-modal-box{padding:22px 16px;} .order-modal-actions{flex-direction:column;} .order-modal-cancel,.order-modal-actions .catalog-send-btn{min-width:0; flex:none; width:100%;}}
+</style>
+</head>
+<body>
+
+<div class="announce-bar" role="note">
+  🚴 &nbsp;Envíos gratis solo en Isidro Casanova &nbsp;·&nbsp; <strong>¡Superando $120.000!</strong> &nbsp;·&nbsp; Retiro sin cargo en el local
+</div>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark"><img src="/image/logo.png" alt="Don Flores - Frutas y Verduras Mayorista"></div>
+    </div>
+    <nav class="links">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="https://wa.me/5491128689434" class="btn nav-cta" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleNav(this)">☰</button>
+  </div>
+  <div class="gold-rule"></div>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <img class="hero-photo" src="/image/Frescura del campo y la cosecha.png" alt="Frescura del campo y la cosecha - frutas y verduras Don Flores">
+    <div class="hero-media-fade"></div>
+  </div>
+  <div class="wrap hero-content">
+    <div class="hero-text">
+      <span class="eyebrow"><span class="dot"></span>Venta mayorista y minorista</span>
+      <h1>Fruta y verdura fresca,<br><span class="accent-text">directo del productor</span></h1>
+      <p class="sub">Abastecemos comercios, verdulerías, restaurantes, comedores y al público en general con frutas y verduras cuidadosamente seleccionadas. Garantizamos productos frescos, precios accesibles y entregas puntuales para satisfacer las necesidades de cada cliente.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5491128689434" class="btn accent" target="_blank" rel="noopener noreferrer">Hacer pedido por WhatsApp</a>
+        <a href="#catalogo" class="btn outline">Ver catálogo</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l1.6 10.6a2 2 0 002 1.4h8.6a2 2 0 002-1.7L20 8H6" stroke="#1F4D3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.4" fill="#1F4D3A"/><circle cx="17" cy="20" r="1.4" fill="#1F4D3A"/></svg></div>
+          <div><b>+150</b><span>Comercios abastecidos</span></div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1F4D3A" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="#1F4D3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><b>24 hs</b><span>Rotación de mercadería</span></div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 7h11v9H3z" stroke="#1F4D3A" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 10h4l3 3v3h-7z" stroke="#1F4D3A" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.5" fill="#1F4D3A"/><circle cx="17" cy="18" r="1.5" fill="#1F4D3A"/></svg></div>
+          <div><b>Zona local</b><span>Envíos a domicilio</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="catalogo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-dark">Catálogo</span>
+      <h2>Elegí, tocá "Pedir por WhatsApp" y coordinamos el resto</h2>
+      <p>📱 <strong>Consultá nuestro catálogo con precios en WhatsApp</strong> — Ingresá a nuestro WhatsApp Business para ver productos, precios actualizados y hacer tu pedido al instante.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="pcard" data-name="Naranjas" data-is-fruit="true" data-crate-label="cajón" data-crate-detail="20 kg c/u">
+        <div class="pcard-img" style="--card-bg:#FDEBD3">
+          <div class="pcard-img-container">
+            <img src="/image/naranjas.jpg" alt="Naranjas" loading="lazy" class="active" onerror="this.style.display='none'">
+            <img src="/image/naranjas-2.jpg" alt="Naranjas vista 2" loading="lazy" onerror="this.style.display='none'">
+            <img src="/image/naranjas-3.jpg" alt="Naranjas vista 3" loading="lazy" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><circle cx="32" cy="34" r="22" fill="#E8A23B"/><path d="M32 12c3 0 5 3 5 6-2-1-4-1-5 0-1-1-3-1-5 0 0-3 2-6 5-6z" fill="#1F4D3A"/></svg>
+            <div class="gallery-dots">
+              <span class="gallery-dot active" onclick="switchGalleryImage(this, 0)"></span>
+              <span class="gallery-dot" onclick="switchGalleryImage(this, 1)"></span>
+              <span class="gallery-dot" onclick="switchGalleryImage(this, 2)"></span>
+            </div>
+          </div>
+        </div>
+        <div class="pname">Naranjas</div>
+        <!-- <div class="ptag">Cajón x 20 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por cajón</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Mandarinas" data-is-fruit="true" data-crate-label="cajón" data-crate-detail="18 kg c/u">
+        <div class="pcard-img" style="--card-bg:#FDF1D9">
+          <div class="pcard-img-container">
+            <img src="/image/mandarinas.jpg" alt="Mandarinas" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><circle cx="32" cy="36" r="18" fill="#EDBB63"/><path d="M29 15c2-4 6-5 8-3-1 1-3 3-3 6-2-1-4-2-5-3z" fill="#1F4D3A"/></svg>
+          </div>
+        </div>
+        <div class="pname">Mandarinas</div>
+        <!-- <div class="ptag">Cajón x 18 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por cajón</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Frutillas" data-is-fruit="true" data-crate-label="bandeja" data-crate-detail="12 u. c/u">
+        <div class="pcard-img" style="--card-bg:#FCE7DD">
+          <div class="pcard-img-container">
+            <img src="/image/frutillas.jpg" alt="Frutillas" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><path d="M32 16c10 0 16 12 16 22 0 12-8 16-16 16s-16-4-16-16c0-10 6-22 16-22z" fill="#E15A2D"/><path d="M22 14l4 6M32 12l0 8M42 14l-4 6" stroke="#1F4D3A" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+          </div>
+        </div>
+        <div class="pname">Frutillas</div>
+        <!-- <div class="ptag">Bandeja x 12 u.</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por bandeja</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Manzanas" data-is-fruit="true" data-crate-label="red" data-crate-detail="10 kg c/u">
+        <div class="pcard-img" style="--card-bg:#FBEFC9">
+          <div class="pcard-img-container">
+            <img src="/image/manzanas.jpg" alt="Manzanas" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="#E15A2D"/></svg>
+          </div>
+        </div>
+        <div class="pname">Manzanas</div>
+        <!-- <div class="ptag">Red x 10 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por red</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Bananas" data-is-fruit="true" data-crate-label="cajón" data-crate-detail="18 kg c/u">
+        <div class="pcard-img" style="--card-bg:#F4E3D3">
+          <div class="pcard-img-container">
+            <img src="/image/bananas.jpg" alt="Bananas" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><path d="M20 40c-6-8 0-22 12-24 8 8 6 20 0 26-4 4-9 2-12-2z" fill="#EAC94C"/></svg>
+          </div>
+        </div>
+        <div class="pname">Bananas</div>
+        <!-- <div class="ptag">Cajón x 18 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por cajón</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Pomelos" data-is-fruit="true" data-crate-label="cajón" data-crate-detail="8 kg c/u">
+        <div class="pcard-img" style="--card-bg:#F1E4F2">
+          <div class="pcard-img-container">
+            <img src="/image/pomelo.jpg" alt="Pomelos" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><circle cx="20" cy="24" r="7" fill="#8E5EA8"/><circle cx="32" cy="22" r="7" fill="#8E5EA8"/><circle cx="26" cy="34" r="7" fill="#8E5EA8"/><circle cx="38" cy="34" r="7" fill="#8E5EA8"/><circle cx="32" cy="44" r="7" fill="#8E5EA8"/></svg>
+          </div>
+        </div>
+        <div class="pname">Pomelos</div>
+        <!-- <div class="ptag">Cajón x 8 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por cajón</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Tomates" data-default-unit="cajón" data-default-detail="20 kg c/u" data-crate-label="cajón" data-crate-detail="20 kg c/u">
+        <div class="pcard-img" style="--card-bg:#FCE7DD">
+          <div class="pcard-img-container">
+            <img src="/image/tomates.jpg" alt="Tomates" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><path d="M32 22c14 0 22 10 22 22 0 8-8 14-22 14S10 52 10 44c0-12 8-22 22-22z" fill="#E15A2D"/><path d="M27 14c2-6 8-8 10-6-2 2-4 5-4 9-3-1-5-2-6-3z" fill="#1F4D3A"/></svg>
+          </div>
+        </div>
+        <div class="pname">Tomates</div>
+        <!-- <div class="ptag">Cajón x 20 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por cajón</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Zapallitos" data-default-unit="bolsa" data-default-detail="25 kg c/u" data-crate-label="bolsa" data-crate-detail="25 kg c/u">
+        <div class="pcard-img" style="--card-bg:#EFE4CF">
+          <div class="pcard-img-container">
+            <img src="/image/zapallitos.jpg" alt="Zapallitos" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><ellipse cx="32" cy="34" rx="16" ry="20" fill="#C9A468"/><circle cx="26" cy="28" r="1.6" fill="#8A6A3E"/><circle cx="37" cy="32" r="1.6" fill="#8A6A3E"/><circle cx="30" cy="42" r="1.6" fill="#8A6A3E"/></svg>
+          </div>
+        </div>
+        <div class="pname">Zapallitos</div>
+        <!-- <div class="ptag">Bolsa x 25 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por bolsa</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Espinaca" data-default-unit="bolsa" data-default-detail="20 kg c/u" data-crate-label="bolsa" data-crate-detail="20 kg c/u">
+        <div class="pcard-img" style="--card-bg:#F2E9F3">
+          <div class="pcard-img-container">
+            <img src="/image/espinaca.jpg" alt="Espinaca" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><ellipse cx="32" cy="34" rx="14" ry="18" fill="#C9A0D6"/></svg>
+          </div>
+        </div>
+        <div class="pname">Espinaca</div>
+        <!-- <div class="ptag">Bolsa x 20 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por bolsa</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Huevos" data-crate-label="maple" data-crate-detail="30 u.">
+        <div class="pcard-img" style="--card-bg:#FFF8E7">
+          <div class="pcard-img-container">
+            <img src="/image/maples-de-huevo.jpg" alt="Maple de Huevos" loading="lazy" class="active" onerror="this.style.display='none'">
+            <img src="/image/huevos-docena.jpg" alt="Docena de Huevos" loading="lazy" onerror="this.style.display='none'">
+            <img src="/image/media-docena-huevo.jpg" alt="Media Docena de Huevos" loading="lazy" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><ellipse cx="32" cy="32" rx="18" ry="24" fill="#F5DEB3"/><ellipse cx="32" cy="30" rx="14" ry="18" fill="#FFF8DC"/></svg>
+            <div class="gallery-dots">
+              <span class="gallery-dot active" onclick="switchGalleryImage(this, 0)"></span>
+              <span class="gallery-dot" onclick="switchGalleryImage(this, 1)"></span>
+              <span class="gallery-dot" onclick="switchGalleryImage(this, 2)"></span>
+            </div>
+          </div>
+        </div>
+        <div class="pname">Huevos</div>
+        <div class="pcard-controls">
+          <div class="unit-toggle triple">
+            <button class="unit-btn active" data-unit="maple" data-label="maple" onclick="setUnit(this)">Maple (30u)</button>
+            <button class="unit-btn" data-unit="docena" data-label="docena" onclick="setUnit(this)">1 Docena</button>
+            <button class="unit-btn" data-unit="media" data-label="1/2 docena" onclick="setUnit(this)">1/2 Docena</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Lechugas" data-default-unit="cajón" data-default-detail="12 u. c/u" data-crate-label="cajón" data-crate-detail="12 u. c/u">
+        <div class="pcard-img" style="--card-bg:#E7F0EA">
+          <div class="pcard-img-container">
+            <img src="/image/lechugas.jpg" alt="Lechugas" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><circle cx="32" cy="34" r="20" fill="#6FAE5B"/><circle cx="32" cy="34" r="13" fill="#89C374"/></svg>
+          </div>
+        </div>
+        <div class="pname">Lechugas</div>
+        <!-- <div class="ptag">Cajón x 12 u.</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por cajón</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Morrones" data-default-unit="cajón" data-default-detail="10 kg c/u" data-crate-label="cajón" data-crate-detail="10 kg c/u">
+        <div class="pcard-img" style="--card-bg:#FCE7DD">
+          <div class="pcard-img-container">
+            <img src="/image/morrones.jpg" alt="Morrones" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><path d="M20 26c0-8 6-14 12-14s12 6 12 14c0 12-6 24-12 24s-12-12-12-24z" fill="#C1392B"/><rect x="29" y="8" width="6" height="8" rx="2" fill="#1F4D3A"/></svg>
+          </div>
+        </div>
+        <div class="pname">Morrones</div>
+        <!-- <div class="ptag">Cajón x 10 kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por cajón</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" data-name="Zapallos" data-default-unit="kg" data-default-detail="" data-crate-label="unidad" data-crate-detail="">
+        <div class="pcard-img" style="--card-bg:#FDF1D9">
+          <div class="pcard-img-container">
+            <img src="/image/zapallos.jpg" alt="Zapallos" loading="lazy" class="active" onerror="this.style.display='none'">
+            <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><circle cx="32" cy="34" r="20" fill="#E8871E"/></svg>
+          </div>
+        </div>
+        <div class="pname">Zapallos</div>
+        <!-- <div class="ptag">Precio por kg</div> -->
+        <div class="pcard-controls">
+          <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="kg" onclick="setUnit(this)">Por kg</button>
+            <button class="unit-btn" data-unit="crate" onclick="setUnit(this)">Por unidad</button>
+          </div>
+          <div class="qty-stepper">
+            <button class="qs-btn" onclick="changeQty(this,-1)">−</button>
+            <span class="qs-val">0</span>
+            <button class="qs-btn" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="catalog-order-bar">
+      <button class="catalog-send-btn" onclick="sendOrder()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.11-1.34A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.68 0-3.24-.48-4.56-1.31l-.33-.2-3.03.8.81-2.95-.21-.34A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.4-5.6c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+        Enviar pedido por WhatsApp
+      </button>
+      <span class="catalog-send-note">Seleccioná cantidades arriba y envianos el detalle. Precio y disponibilidad se confirman por WhatsApp.</span>
+    </div>
+    <p class="catalog-note" style="margin-top:16px">💬 &nbsp;¿No encontrás lo que buscás? Visitá nuestro catálogo en WhatsApp para ver todos los productos y precios disponibles.</p>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-dark">Por qué elegirnos</span>
+      <h2>Pensado para el ritmo de tu negocio</h2>
+      <p>No vendemos por vender: acompañamos el abastecimiento de cada cliente como si fuera propio.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#1F4D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Calidad seleccionada</h3>
+        <p>Cada pedido se revisa antes de salir, para que llegue lo mejor de la cosecha.</p>
+      </div>
+      <div class="feature">
+        <div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v9l6 3" stroke="#1F4D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#1F4D3A" stroke-width="2.2"/></svg></div>
+        <h3>Frescura garantizada</h3>
+        <p>Rotación rápida entre el mercado y tu local, sin tiempos muertos.</p>
+      </div>
+    </div>
+    <div style="max-width:600px; margin:48px auto 0; text-align:center; padding:24px; background:var(--green-soft); border-radius:16px; border:1px solid var(--green-line);">
+      <p style="font-size:15px; color:var(--green); margin-bottom:16px;"><strong>💰 ¿Querés conocer nuestros precios actualizados?</strong></p>
+      <p style="font-size:14px; color:var(--gray); margin-bottom:18px;">Ingresá a nuestro WhatsApp Business para ver el catálogo completo con precios del día. Mayorista y minorista.</p>
+      <a href="https://wa.me/5491128689434?text=Hola%20Don%20Flores!%20Me%20gustaría%20ver%20el%20catálogo%20con%20precios." class="btn accent" target="_blank" rel="noopener noreferrer">Ver catálogo en WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div>
+        <h2>Armemos tu próximo pedido</h2>
+        <p>Contanos qué necesitás y te respondemos con el precio el mismo día, ya sea por mayor o por menor.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://wa.me/5491128689434" class="btn accent" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+        <!-- <span class="phone-line">o llamanos al +54 9 11 2868-9434</span> -->
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-list">
+        <span class="eyebrow-dark">Dónde encontrarnos</span>
+        <h2 style="font-size:clamp(22px,2.8vw,32px); margin:10px 0 6px;">Contacto y ubicación</h2>
+        <div class="contact-item">
+          <div class="contact-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="#1F4D3A"/></svg></div>
+          <div class="contact-item-text">
+            <h4>Dirección</h4>
+            <p>Roque Pérez 5387, Isidro Casanova, La Matanza, Buenos Aires<br>Argentina</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.22 11.72 11.72 0 003.69.59A1 1 0 0121 17.5V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.5a1 1 0 011 .88 11.72 11.72 0 00.59 3.69 1 1 0 01-.22 1.11l-2.25 2.11z" stroke="#1F4D3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="contact-item-text">
+            <h4>Teléfono / WhatsApp</h4>
+            <p>+54 9 11 2868-9434</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1F4D3A" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="#1F4D3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="contact-item-text">
+            <h4>Horarios</h4>
+            <p>Martes a Sábado: 9:00 – 22:00 hs<br>Domingos: 9:00 – 21:00 hs</p>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <!-- Para personalizar: buscá tu dirección en maps.google.com → Compartir → Insertar mapa → reemplazá el src -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.9200747691907!2d-58.57142259999999!3d-34.7071958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc609564bbbf5%3A0x3a66ace9d3366b7a!2sRoque%20P%C3%A9rez%205387%2C%20B1754HGU%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1785529148813!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><div class="brand-mark brand-mark--lg"><img src="/image/logo.png" alt="Don Flores - Frutas y Verduras Mayorista"></div></div>
+        <p class="desc">Frutas y verduras frescas, venta mayorista y minorista. Calidad seleccionada y atención personalizada.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>WhatsApp: +54 11 2868-9434</li>
+          <li>Venta mayorista y minorista</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Don Flores. Todos los derechos reservados.</span>
+      <span>Mayorista y minorista</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function changeQty(btn, delta) {
+  var stepper = btn.closest('.qty-stepper');
+  var valEl = stepper.querySelector('.qs-val');
+  var v = Math.max(0, (parseInt(valEl.textContent) || 0) + delta);
+  valEl.textContent = v;
+  btn.closest('.pcard').classList.toggle('has-qty', v > 0);
+}
+
+function setUnit(btn) {
+  btn.closest('.unit-toggle').querySelectorAll('.unit-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var card = btn.closest('.pcard');
+  var hint = card.querySelector('.qty-unit-hint');
+  
+  // Cambiar imagen de galería según la opción seleccionada en huevos
+  var unitType = btn.dataset.unit;
+  if (card.dataset.name === 'Huevos') {
+    var imgIndex = unitType === 'maple' ? 0 : (unitType === 'docena' ? 1 : 2);
+    var dots = card.querySelectorAll('.gallery-dot');
+    if (dots.length > 0) switchGalleryImage(dots[imgIndex], imgIndex);
+  }
+  
+  if (hint) {
+    if (unitType === 'crate' || unitType === 'maple' || unitType === 'docena' || unitType === 'media') {
+      var label = btn.dataset.label || card.dataset.crateLabel || 'cajón';
+      hint.textContent = label;
+    } else {
+      hint.textContent = 'kg';
+    }
+  }
+}
+
+function switchGalleryImage(dot, index) {
+  var container = dot.closest('.pcard-img');
+  var images = container.querySelectorAll('img');
+  var dots = container.querySelectorAll('.gallery-dot');
+  
+  images.forEach(function(img, i) {
+    img.classList.toggle('active', i === index);
+  });
+  
+  dots.forEach(function(d, i) {
+    d.classList.toggle('active', i === index);
+  });
+}
+
+function pluralize(word, qty) {
+  if (qty === 1) return word;
+  var map = { 'cajón':'cajones', 'bolsa':'bolsas', 'bandeja':'bandejas', 'red':'redes', 'kg':'kg', 'maple':'maples', 'docena':'docenas', '1/2 docena':'1/2 docenas' };
+  return map[word] || word + 's';
+}
+
+var _lastSend = 0, _pendingMsg = '';
+
+function sendOrder() {
+  var lines = [], hasError = false;
+  document.querySelectorAll('.pcard[data-name]').forEach(function(card) {
+    var qty = parseInt(card.querySelector('.qs-val').textContent, 10) || 0;
+    if (qty < 0 || qty > 99) { hasError = true; return; }
+    if (!qty) return;
+    var name = card.dataset.name.replace(/[<>"'&]/g, '');
+    var unitStr;
+    var activeUnitBtn = card.querySelector('.unit-btn.active');
+    if (activeUnitBtn) {
+      var unitType = activeUnitBtn.dataset.unit;
+      if (unitType === 'crate' || unitType === 'maple' || unitType === 'docena' || unitType === 'media') {
+        var label = activeUnitBtn.dataset.label || card.dataset.crateLabel || 'cajón';
+        unitStr = qty + ' ' + pluralize(label, qty);
+      } else {
+        unitStr = qty + ' kg';
+      }
+    } else {
+      var unit = card.dataset.defaultUnit || 'unidad';
+      unitStr = qty + ' ' + pluralize(unit, qty);
+    }
+    lines.push('- ' + name + ': ' + unitStr);
+  });
+  if (hasError) { alert('Cantidad inválida. Usá valores entre 1 y 99.'); return; }
+  if (!lines.length) { alert('Por favor seleccioná al menos un producto.'); return; }
+  var now = Date.now();
+  if (now - _lastSend < 60000) {
+    alert('Esperá ' + Math.ceil((60000 - (now - _lastSend)) / 1000) + ' seg. antes de enviar otro pedido.');
+    return;
+  }
+  _pendingMsg = 'Hola Don Flores! 🌿 Quisiera hacer el siguiente pedido:\n\n' + lines.join('\n') + '\n\nPor favor confirmarme precio y disponibilidad. ¡Muchas gracias!';
+  if (encodeURIComponent(_pendingMsg).length > 1800) { alert('El pedido es muy largo. Reducí productos.'); return; }
+  showOrderModal(lines);
+}
+function showOrderModal(lines) {
+  var list = document.getElementById('orderModalList');
+  while (list.firstChild) list.removeChild(list.firstChild);
+  lines.forEach(function(l) {
+    var div = document.createElement('div'); div.className = 'order-modal-item';
+    var idx = l.indexOf(': ');
+    var s = document.createElement('strong'); s.textContent = idx > 1 ? l.slice(2, idx) : l.slice(2);
+    var sp = document.createElement('span'); sp.textContent = idx > 1 ? l.slice(idx + 2) : '';
+    div.appendChild(s); div.appendChild(sp); list.appendChild(div);
+  });
+  document.getElementById('orderModal').removeAttribute('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeOrderModal() {
+  document.getElementById('orderModal').setAttribute('hidden', '');
+  document.body.style.overflow = '';
+}
+function confirmOrder() {
+  _lastSend = Date.now();
+  closeOrderModal();
+  window.open('https://wa.me/5491128689434?text=' + encodeURIComponent(_pendingMsg), '_blank', 'noopener,noreferrer');
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeOrderModal(); });
+function toggleNav(btn) {
+  var nav = document.querySelector('nav.links');
+  var open = nav.classList.toggle('open');
+  btn.textContent = open ? '✕' : '☰';
+  btn.setAttribute('aria-expanded', open);
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('header')) {
+    var nav = document.querySelector('nav.links');
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      var btn = document.querySelector('.menu-toggle');
+      if (btn) { btn.textContent = '☰'; btn.setAttribute('aria-expanded', false); }
+    }
+  }
+});
+document.querySelectorAll('nav.links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var nav = document.querySelector('nav.links');
+    nav.classList.remove('open');
+    var btn = document.querySelector('.menu-toggle');
+    if (btn) { btn.textContent = '☰'; btn.setAttribute('aria-expanded', false); }
+  });
+});
+// insert unit hint below each stepper on load
+document.querySelectorAll('.pcard').forEach(function(card) {
+  var stepper = card.querySelector('.qty-stepper');
+  if (!stepper) return;
+  var hint = document.createElement('span');
+  hint.className = 'qty-unit-hint';
+  hint.textContent = card.querySelector('.unit-toggle') ? 'kg' : (card.dataset.defaultUnit || '');
+  stepper.parentNode.insertBefore(hint, stepper.nextSibling);
+});
+</script>
+
+<a href="https://wa.me/5491128689434" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+  <svg width="27" height="27" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.11-1.34A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.68 0-3.24-.48-4.56-1.31l-.33-.2-3.03.8.81-2.95-.21-.34A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.4-5.6c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+</a>
+
+<div class="order-modal" id="orderModal" hidden aria-modal="true" role="dialog" aria-labelledby="orderModalTitle">
+  <div class="order-modal-overlay" onclick="closeOrderModal()"></div>
+  <div class="order-modal-box">
+    <h3 id="orderModalTitle">Revisá tu pedido</h3>
+    <p class="order-modal-subtitle">Confirmá el detalle antes de abrir WhatsApp.</p>
+    <div id="orderModalList"></div>
+    <div class="order-modal-delivery">🚴 Envíos solo en la zona &nbsp;·&nbsp; Gratis superando $XXXXX</div>
+    <div class="order-modal-actions">
+      <button class="order-modal-cancel" onclick="closeOrderModal()">Modificar</button>
+      <button class="catalog-send-btn" onclick="confirmOrder()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.11-1.34A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.68 0-3.24-.48-4.56-1.31l-.33-.2-3.03.8.81-2.95-.21-.34A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.4-5.6c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+        Confirmar y enviar
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
