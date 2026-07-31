@@ -241,10 +241,10 @@
     .feature{padding:22px 18px;}
     .feature h3{font-size:16.5px;}
     .feature p{font-size:14px; line-height:1.5;}
-    .contact-grid{margin-top:40px;}
+    .contact-grid{margin-top:40px; display:flex; flex-direction:column;}
+    .map-wrap{height:280px; border-radius:14px; margin-bottom:32px;}
     .contact-block h3{font-size:17px;}
     .contact-block p{font-size:14.5px; line-height:1.6;}
-    .map-wrap{height:260px; border-radius:14px;}
     footer{padding:40px 0 22px;}
     .foot-grid{gap:24px;}
     .foot-bottom{flex-direction:column; align-items:flex-start; gap:6px;}
@@ -257,7 +257,7 @@
   @media (max-width: 400px){
     .product-grid{grid-template-columns:1fr;}
     .hero-ctas{flex-direction:column; gap:12px;}
-    .hero-ctas .btn{width:100%; justify-content:center; padding:14px;}
+    .hero-ctas .btn{width:80%; justify-content:center; padding:14px;}
     .hero-media{height:280px;}
     .unit-btn{padding:7px 5px; font-size:12px;}
     .qs-btn{width:36px; height:36px;}
@@ -265,6 +265,8 @@
     .hstat b{font-size:17px;}
     .cta-panel{padding:28px 18px;}
     .contact-ic{width:38px; height:38px;}
+    .contact-item{gap:12px;}
+    .map-wrap{height:260px; margin-bottom:28px;}
     .nav{padding:10px 16px;}
     .brand-mark img{height:50px;}
   }
@@ -301,7 +303,7 @@
   /* image upload hint shown in devtools — drop file at the listed path to activate */
 
   /* --- Contact section --- */
-  .contact-grid{display:grid; grid-template-columns:1fr 1.5fr; gap:36px; align-items:start; margin-top:64px;}
+  .contact-grid{display:grid; grid-template-columns:1.5fr 1fr; gap:36px; align-items:start; margin-top:64px;}
   .contact-info-list{display:flex; flex-direction:column; gap:20px;}
   .contact-item{display:flex; gap:14px; align-items:flex-start;}
   .contact-ic{width:42px; height:42px; border-radius:11px; background:var(--green-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
@@ -751,6 +753,10 @@
       </div>
     </div>
     <div class="contact-grid">
+      <div class="map-wrap">
+        <!-- Para personalizar: buscá tu dirección en maps.google.com → Compartir → Insertar mapa → reemplazá el src -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.9200747691907!2d-58.57142259999999!3d-34.7071958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc609564bbbf5%3A0x3a66ace9d3366b7a!2sRoque%20P%C3%A9rez%205387%2C%20B1754HGU%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1785529148813!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
       <div class="contact-info-list">
         <span class="eyebrow-dark">Dónde encontrarnos</span>
         <h2 style="font-size:clamp(22px,2.8vw,32px); margin:10px 0 6px;">Contacto y ubicación</h2>
@@ -775,10 +781,6 @@
             <p>Lunes a Sábado: 9:00 – 22:00 hs<br>Domingos: 9:00 – 21:00 hs</p>
           </div>
         </div>
-      </div>
-      <div class="map-wrap">
-        <!-- Para personalizar: buscá tu dirección en maps.google.com → Compartir → Insertar mapa → reemplazá el src -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.9200747691907!2d-58.57142259999999!3d-34.7071958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc609564bbbf5%3A0x3a66ace9d3366b7a!2sRoque%20P%C3%A9rez%205387%2C%20B1754HGU%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1785529148813!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </div>
   </div>
