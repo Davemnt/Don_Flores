@@ -176,7 +176,9 @@
     width:56px; height:56px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 8px 20px rgba(37,211,102,0.35);
+    transition:transform .2s, box-shadow .2s;
   }
+  .wa-float:hover{transform:scale(1.05); box-shadow:0 10px 25px rgba(37,211,102,0.45);}
 
   @media (max-width: 920px){
     nav.links{
@@ -215,44 +217,56 @@
     .section-head{margin-bottom:40px;}
   }
   @media (max-width: 600px){
-    .wrap{padding:0 16px;}
-    .nav{padding:10px 16px;}
-    .brand-mark img{height:44px;}
-    .brand-mark--lg img{height:56px;}
-    section{padding:44px 0;}
-    .cta{padding:0 0 44px;}
-    .hero-media{height:210px;}
-    .hero-content{padding:18px 16px 40px;}
-    .hero h1{font-size:clamp(24px,7.5vw,36px);}
-    .hero p.sub{font-size:15px; margin:16px 0 24px;}
-    .hero-stats{gap:14px;}
-    .hstat b{font-size:17px;}
-    .pcard{padding:16px 14px 14px;}
-    .pcard-img{height:240px;}
-    .section-head{margin-bottom:30px;}
-    .section-head h2{font-size:clamp(20px,5.5vw,30px);}
-    .cta-panel{padding:28px 20px;}
-    .cta-panel h2{font-size:clamp(20px,5.5vw,28px);}
-    .features-grid{gap:12px;}
-    .feature{padding:20px 16px;}
-    .contact-grid{margin-top:36px;}
-    .map-wrap{height:210px;}
-    footer{padding:32px 0 18px;}
-    .foot-grid{gap:20px;}
-    .foot-bottom{flex-direction:column; align-items:flex-start; gap:4px;}
-    .catalog-order-bar{margin-top:28px;}
-    .catalog-send-btn{padding:13px 20px; font-size:14.5px; width:100%; justify-content:center;}
-    .catalog-send-note{font-size:12.5px;}
+    .wrap{padding:0 18px;}
+    .nav{padding:12px 18px;}
+    .brand-mark img{height:54px;}
+    .brand-mark--lg img{height:64px;}
+    section{padding:52px 0;}
+    .cta{padding:0 0 52px;}
+    .hero-media{height:300px;}
+    .hero-content{padding:24px 18px 48px;}
+    .hero h1{font-size:clamp(26px,7.5vw,36px); line-height:1.15;}
+    .hero p.sub{font-size:15.5px; margin:18px 0 28px; line-height:1.5;}
+    .hero-stats{gap:16px; margin-top:32px;}
+    .hstat b{font-size:18px;}
+    .pcard{padding:18px 16px 16px;}
+    .pcard-img{height:260px;}
+    .section-head{margin-bottom:36px;}
+    .section-head h2{font-size:clamp(23px,5.5vw,30px);}
+    .section-head p{font-size:15.5px;}
+    .cta-panel{padding:32px 22px;}
+    .cta-panel h2{font-size:clamp(22px,5.5vw,28px);}
+    .cta-panel p{font-size:15px;}
+    .features-grid{gap:14px;}
+    .feature{padding:22px 18px;}
+    .feature h3{font-size:16.5px;}
+    .feature p{font-size:14px; line-height:1.5;}
+    .contact-grid{margin-top:40px;}
+    .contact-block h3{font-size:17px;}
+    .contact-block p{font-size:14.5px; line-height:1.6;}
+    .map-wrap{height:260px; border-radius:14px;}
+    footer{padding:40px 0 22px;}
+    .foot-grid{gap:24px;}
+    .foot-bottom{flex-direction:column; align-items:flex-start; gap:6px;}
+    .catalog-order-bar{margin-top:32px;}
+    .catalog-send-btn{padding:14px 22px; font-size:15px; width:100%; justify-content:center;}
+    .catalog-send-note{font-size:13px; line-height:1.5;}
+    .catalog-note{font-size:14px; padding:18px; line-height:1.5;}
+    .wa-float{width:58px; height:58px; bottom:20px; right:20px;}
   }
   @media (max-width: 400px){
     .product-grid{grid-template-columns:1fr;}
-    .hero-ctas{flex-direction:column;}
-    .hero-ctas .btn{width:100%; justify-content:center;}
-    .unit-btn{padding:6px 4px; font-size:11.5px;}
-    .qs-btn{width:34px; height:34px;}
+    .hero-ctas{flex-direction:column; gap:12px;}
+    .hero-ctas .btn{width:100%; justify-content:center; padding:14px;}
+    .hero-media{height:280px;}
+    .unit-btn{padding:7px 5px; font-size:12px;}
+    .qs-btn{width:36px; height:36px;}
     .hstat{width:100%;}
-    .cta-panel{padding:24px 16px;}
-    .contact-ic{width:36px; height:36px;}
+    .hstat b{font-size:17px;}
+    .cta-panel{padding:28px 18px;}
+    .contact-ic{width:38px; height:38px;}
+    .nav{padding:10px 16px;}
+    .brand-mark img{height:50px;}
   }
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; scroll-behavior:auto !important;}
@@ -299,7 +313,7 @@
   /* --- Announce bar --- */
   .announce-bar{background:var(--green); color:#fff; text-align:center; font-size:13px; font-weight:500; padding:10px 16px; line-height:1.5;}
   .announce-bar strong{font-weight:700;}
-  @media(max-width:600px){.announce-bar{font-size:12px; padding:8px 12px;}}
+  @media(max-width:600px){.announce-bar{font-size:11.5px; padding:9px 14px; line-height:1.4;}}
 
   /* --- Order confirmation modal --- */
   .order-modal{position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:20px;}
@@ -758,7 +772,7 @@
           <div class="contact-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1F4D3A" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="#1F4D3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="contact-item-text">
             <h4>Horarios</h4>
-            <p>Martes a Sábado: 9:00 – 22:00 hs<br>Domingos: 9:00 – 21:00 hs</p>
+            <p>Lunes a Sábado: 9:00 – 22:00 hs<br>Domingos: 9:00 – 21:00 hs</p>
           </div>
         </div>
       </div>
