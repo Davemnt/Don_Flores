@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Don Flores — sitemap generado automáticamente.
+  Productos (19): Naranjas, Mandarinas, Frutillas, Manzanas, Bananas, Pomelos, Tomates, Zapallitos, Espinaca, Lechugas, Morrones, Zapallos, Huevos Blancos, Huevos Colorados, Alitas de Pollo, Pata Muslo, Pollo Trozado, Menudos, Matambre de Pollo.
+  Secciones: frutas-verduras, granja, nosotros, contacto.
+  Regenerar: node scripts/generate-sitemap.js
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://donflores.vercel.app/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/logo.png</image:loc>
+      <image:title>Don Flores - Frutas y Verduras Mayorista</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/Frescura%20del%20campo%20y%20la%20cosecha.png</image:loc>
+      <image:title>Frescura del campo y la cosecha - frutas y verduras Don Flores</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/naranjas.jpg</image:loc>
+      <image:title>Naranjas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/naranjas-2.jpg</image:loc>
+      <image:title>Naranjas vista 2</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/naranjas-3.jpg</image:loc>
+      <image:title>Naranjas vista 3</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/mandarinas.jpg</image:loc>
+      <image:title>Mandarinas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/frutillas.jpg</image:loc>
+      <image:title>Frutillas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/manzanas.jpg</image:loc>
+      <image:title>Manzanas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/bananas.jpg</image:loc>
+      <image:title>Bananas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/pomelo.jpg</image:loc>
+      <image:title>Pomelos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/tomates.jpg</image:loc>
+      <image:title>Tomates</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/zapallitos.jpg</image:loc>
+      <image:title>Zapallitos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/espinaca.jpg</image:loc>
+      <image:title>Espinaca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/lechugas.jpg</image:loc>
+      <image:title>Lechugas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/morrones.jpg</image:loc>
+      <image:title>Morrones</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/zapallos.jpg</image:loc>
+      <image:title>Zapallos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/maples-de-huevo.jpg</image:loc>
+      <image:title>Maple de Huevos Blancos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/docena_huevo.jpg</image:loc>
+      <image:title>Docena de Huevos Blancos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/media-docena-huevo.jpg</image:loc>
+      <image:title>Media Docena de Huevos Blancos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/huevos-colorados.jpg</image:loc>
+      <image:title>Maple de Huevos Colorados</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/huevos-colorados-docena.png</image:loc>
+      <image:title>Docena de Huevos Colorados</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/huevos-colorados-media.png</image:loc>
+      <image:title>Media Docena de Huevos Colorados</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/alitas.jpeg</image:loc>
+      <image:title>Alitas de Pollo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/pata-muslo.jpeg</image:loc>
+      <image:title>Pata Muslo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/patas.jpeg</image:loc>
+      <image:title>Pollo Trozado</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/menudos.jpeg</image:loc>
+      <image:title>Menudos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://donflores.vercel.app/image/matambre-pollo.jpeg</image:loc>
+      <image:title>Matambre de Pollo</image:title>
+    </image:image>
+  </url>
+
+</urlset>

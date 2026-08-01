@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 <style>
   :root{
     --ink:#14231C;
@@ -292,7 +293,7 @@
   .catalog-send-note{font-size:14px; color:var(--gray); text-align:center; max-width:500px;}
   .pcard-img{width:100%; height:320px; border-radius:14px; overflow:hidden; margin-bottom:16px; background:var(--card-bg,var(--panel)); position:relative;}
   .pcard-img-container{position:relative; width:100%; height:100%; display:flex; overflow:hidden;}
-  .pcard-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none; transition:opacity .4s ease;}
+  .pcard-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:12px; display:none; transition:opacity .4s ease;}
   .pcard-img img.active{display:block; opacity:1; z-index:1;}
   .pcard-svg{width:44px; height:44px; flex-shrink:0; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:0; opacity:1;}
   .pcard-img img.active ~ .pcard-svg{opacity:0;}
@@ -730,8 +731,8 @@
         <div class="pcard-img" style="--card-bg:#FFF8E7">
           <div class="pcard-img-container">
             <img src="/image/huevos-colorados.jpg" alt="Maple de Huevos Colorados" loading="lazy" class="active" onerror="this.style.display='none'">
-            <!-- <img src="/image/huevos-colorados-docena.jpg" alt="Docena de Huevos Colorados" loading="lazy" onerror="this.style.display='none'">
-            <img src="/image/huevos-colorados-media.jpg" alt="Media Docena de Huevos Colorados" loading="lazy" onerror="this.style.display='none'"> -->
+            <img src="/image/huevos-colorados-docena.png" alt="Docena de Huevos Colorados" loading="lazy" onerror="this.style.display='none'">
+            <img src="/image/huevos-colorados-media.png" alt="Media Docena de Huevos Colorados" loading="lazy" onerror="this.style.display='none'">
             <svg class="pcard-svg" width="44" height="44" viewBox="0 0 64 64"><ellipse cx="32" cy="32" rx="18" ry="24" fill="#F5DEB3"/><ellipse cx="32" cy="30" rx="14" ry="18" fill="#FFF8DC"/></svg>
             <div class="gallery-dots">
               <span class="gallery-dot active" onclick="switchGalleryImage(this, 0)"></span>
@@ -884,7 +885,7 @@
         </div>
       </div>
 
-      <div class="pcard" data-name="Matambre de Pollo" data-default-unit="kg" data-granja="true">
+      <div class="pcard" data-name="Matambre de Pollo" data-default-unit="unidad" data-granja="true">
         <div class="pcard-img" style="--card-bg:#FAEBD7">
           <div class="pcard-img-container">
             <img src="/image/matambre-pollo.jpeg" alt="Matambre de Pollo" loading="lazy" class="active" onerror="this.style.display='none'">
